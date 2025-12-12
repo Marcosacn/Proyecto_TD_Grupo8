@@ -83,11 +83,11 @@ Finalmente, se realiza un ajuste fino de un modelo DistilBERT para clasificació
 ## 4. Resultados experimentales y discusión
 
 Los modelos se evalúan sobre el conjunto de test utilizando métricas estándar como:
-. Accuracy (TP + TN) / (TP + TN + FP + FN)
-. Precision (TP) / (TP + FP)
-. Recall (TP) / (TP + FN)
-. F1-score (2 · (Precision · Recall) / (Precision + Recall))
-. ROC-AUC 
+- Accuracy (TP + TN) / (TP + TN + FP + FN)
+- Precision (TP) / (TP + FP)
+- Recall (TP) / (TP + FN)
+- F1-score (2 · (Precision · Recall) / (Precision + Recall))
+- ROC-AUC 
 
 Los resultados obtenidos muestran que las representaciones basadas en TF-IDF siguen siendo extremadamente eficaces para la detección de desinformación. En particular, el modelo Red Neuronal + TF-IDF alcanza el mejor rendimiento global en el conjunto de test, con un F1-score de 0.9391, una accuracy de 0.9305 y un ROC-AUC de 0.9793, lo que lo convierte en la mejor solución evaluada. Los modelos tradicionales, especialmente Logistic Regression + TF-IDF, también presentan resultados muy competitivos, actuando como un baseline sólido, eficiente e interpretable, con un rendimiento cercano al de la red neuronal. Esto pone de manifiesto que gran parte de la información discriminativa está contenida en la frecuencia y distribución léxica del texto. Por otro lado, las representaciones basadas en Word2Vec y en embeddings contextuales de DistilBERT funcionan adecuadamente en combinación con modelos más complejos, como redes neuronales o Random Forest. Sin embargo, los modelos más simples, como KNN y SVM, muestran un rendimiento claramente inferior cuando se combinan con Word2Vec o DistilBERT, obteniendo los peores resultados globales del estudio. Esto sugiere que estos clasificadores no son capaces de explotar eficazmente la información contenida en representaciones densas y de alta dimensión sin un proceso adicional de adaptación o fine-tuning. Finalmente, el fine-tuning de DistilBERT logra resultados elevados y estables, aunque la mejora frente a los modelos clásicos basados en TF-IDF es moderada, lo que resulta razonable teniendo en cuenta el tamaño del dataset y el mayor coste computacional asociado a este tipo de modelos.
 
